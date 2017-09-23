@@ -1,0 +1,13 @@
+Package: interplot.medline
+Type: Package
+Title: A Wrapper for Interplot to Add Median Lines
+Version: 0.1.0
+Author: Tom Pepinsky
+Maintainer: Tom Pepinsky <pepinsky@cornell.edu>
+Description: This function is wrapper for the interplot function (Solt and Hu) that adds a median line to a standard marginal effects plot (Brambor, Clark, and Golder). It produces a minimally formatted plot with a histogram of the distribution of the moderating variable. 
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Imports:
+  ggplot2,
+  interplot
