@@ -3,11 +3,11 @@
 #' @description This package adds a median line to a standard
 #' marginal effects plot
 #'
-#' @param m
-#' @param var1
-#' @param var2
+#' @param m A model object with interaction terms
+#' @param var1 The variable for which you wish to calculate marginal effects
+#' @param var2 The moderator
 #'
-#' @return NULL
+#' @return The function returns a \code{ggplot} object.
 #'
 #' @examples  interplot.medline(m = mpg, var1 = "cyl", var2 = "wt")
 #'
@@ -15,7 +15,15 @@
 
 interplot.medline <- function(m,
                               var1,
-                              var2){
+                              var2,
+                              ci = .95){
+
+  # check to see if supported model
+  if (class(m)[1] == "glm") {
+    print("is GLM")
+    if (m$family[1] != "binomial")
+      stop("Interplot.medline only supports OLS, logit, and probit.")
+  }
 
   # get the median value of the moderator
   if (var2 %in% names(m$coef)) {
@@ -50,7 +58,7 @@ interplot.medline <- function(m,
   depvar <- names(m$model)[1]
 
   # create the graph
-  p <- interplot::interplot(m=m, var1 = var1, var2 = var2, hist=TRUE) +
+  p <- interplot::interplot(m=m, var1 = var1, var2 = var2, ci=ci, hist=TRUE) +
     ggplot2::theme_classic() +
     ggplot2::geom_hline(yintercept=hline, linetype="dashed") +
     ggplot2::geom_hline(yintercept=0) +
@@ -59,5 +67,4 @@ interplot.medline <- function(m,
   return(p)
 
 }
-
 

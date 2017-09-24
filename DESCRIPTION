@@ -11,3 +11,4 @@ LazyData: true
 Imports:
   ggplot2,
   interplot
+RoxygenNote: 6.0.1
