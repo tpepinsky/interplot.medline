@@ -1,15 +1,20 @@
-#' @title A Wrapper for Interplot to add Median Lines
+#' @title A Wrapper for Interplot (Holt and Su) to add Median Lines
 #'
 #' @description This package adds a median line to a standard
-#' marginal effects plot
+#' marginal effects plot (Brambor, Clark, and Golder 2006) created by \code{\link{interplot}} (Solt and Hu 2015).
 #'
 #' @param m A model object with interaction terms
 #' @param var1 The variable for which you wish to calculate marginal effects
 #' @param var2 The moderator
 #'
-#' @return The function returns a \code{ggplot} object.
+#' @return The function returns a \code{\link{ggplot}} object.
 #'
-#' @examples  interplot.medline(m = mpg, var1 = "cyl", var2 = "wt")
+#' @examples  interplot.medline(m = fit, var1 = "cyl", var2 = "wt")
+#'
+#' @seealso \code{\link{interplot}}
+#'
+#' @references Brambor, Thomas, William Roberts Clark and Matt Golder. 2006. Understanding Interaction Models: Improving Empirical Analyses. \emph{Political Analysis} 14(1), pp. 63-82.
+#' @references Solt, Frederick, and Yue Hu. 2015. \code{interplot}: Plot the Coefficients of Variables in Interaction Terms. The Comprehensive R Archive Network (CRAN).
 #'
 #' @export interplot.medline
 

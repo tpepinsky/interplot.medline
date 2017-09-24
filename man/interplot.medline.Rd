@@ -2,7 +2,7 @@
 % Please edit documentation in R/interplot.medline.R
 \name{interplot.medline}
 \alias{interplot.medline}
-\title{A Wrapper for Interplot to add Median Lines}
+\title{A Wrapper for Interplot (Holt and Su) to add Median Lines}
 \usage{
 interplot.medline(m, var1, var2, ci = 0.95)
 }
@@ -14,13 +14,21 @@ interplot.medline(m, var1, var2, ci = 0.95)
 \item{var2}{The moderator}
 }
 \value{
-The function returns a \code{ggplot} object.
+The function returns a \code{\link{ggplot}} object.
 }
 \description{
 This package adds a median line to a standard
-marginal effects plot
+marginal effects plot (Brambor, Clark, and Golder 2006) created by \code{\link{interplot}} (Solt and Hu 2015).
 }
 \examples{
- interplot.medline(m = mpg, var1 = "cyl", var2 = "wt")
+ interplot.medline(m = fit, var1 = "cyl", var2 = "wt")
 
+}
+\references{
+Brambor, Thomas, William Roberts Clark and Matt Golder. 2006. Understanding Interaction Models: Improving Empirical Analyses. \emph{Political Analysis} 14(1), pp. 63-82.
+
+Solt, Frederick, and Yue Hu. 2015. \code{interplot}: Plot the Coefficients of Variables in Interaction Terms. The Comprehensive R Archive Network (CRAN).
+}
+\seealso{
+\code{\link{interplot}}
 }
